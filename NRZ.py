@@ -1,5 +1,8 @@
+'NRZ-L, NRZ-M and NRZ-S'
+#Imports Matplotlib to Plot
 import matplotlib.pyplot as plt
 
+#Accepts inputs from User
 N = int(input("Number of Bits to be Transmitted : "))
 y = []
 y.append(0)
@@ -7,6 +10,7 @@ for n in range(0, N):
     x = int(input(""))
     y.append(x)
 
+#This Function Returns NRZ-L Values
 def nrz_l():
     y1 = []
     for i in y:
@@ -14,6 +18,7 @@ def nrz_l():
         y1.append(i)
     return y1
 
+#This Function Returns NRZ-M Values
 def nrz_m():
     y2 = []
     y3 = []
@@ -26,6 +31,7 @@ def nrz_m():
         y3.append(i)
     return y3
 
+#This Function Returns NRZ-S Values
 def nrz_s():
     j = 0
     y4 = []
@@ -40,31 +46,36 @@ def nrz_s():
         y5.append(i)
     return y5
 
+#This Function gives Titles n etc.,
 def titles(m):
     plt.subplot(3, 1, m)
     plt.xlabel('Time')
     plt.ylabel('Amp')
     plt.tight_layout()
     plt.grid()
+    plt.xticks(x)
 
+#Plotting Starts :
+#Figure 1 and x-axis
 plt.figure(1)
 x = range(0, N+1)
 
+#Plots NRZ-L
 titles(1)
 plt.step(x, nrz_l(), color='g')
 plt.title('NRZ-L')
-plt.xticks(x)
 
+#Plots NRZ-M
 titles(2)
 plt.step(x, nrz_m(), color='b')
 plt.title('NRZ-M')
-plt.xticks(x)
 
+#Plots NRZ-S
 titles(3)
 plt.step(x, nrz_s(), color='k')
 plt.title('NRZ-S')
-plt.xticks(x)
 
+#Shows the Graph
 plt.show()
 
 print("Programmed by Akash U Kulkarni")
