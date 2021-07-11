@@ -48,7 +48,9 @@ def nrz_s():
 
 #This Function gives Titles n etc.,
 def titles(m):
+    a = {1 : "NRZ-L", 2 : "NRZ-M", 3 : "NRZ-S"}
     plt.subplot(3, 1, m)
+    plt.title(a[m])
     plt.xlabel('Time')
     plt.ylabel('Amp')
     plt.tight_layout()
@@ -63,17 +65,14 @@ x = range(0, N+1)
 #Plots NRZ-L
 titles(1)
 plt.step(x, nrz_l(), color='g')
-plt.title('NRZ-L')
 
 #Plots NRZ-M
 titles(2)
 plt.step(x, nrz_m(), color='b')
-plt.title('NRZ-M')
 
 #Plots NRZ-S
 titles(3)
 plt.step(x, nrz_s(), color='k')
-plt.title('NRZ-S')
 
 #Shows the Graph
 plt.show()
