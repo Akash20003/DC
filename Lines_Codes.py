@@ -79,8 +79,11 @@ def bi_rz():
     return y7
 
 #This Function returns Titles and etc to plot the Graph
-def titles(m):
+def titles(m,q):
+    a = {1 : "Unipolar", 2 : "Polar", 3 : "Bipolar"}
+    b = {1 : "NRZ", 2 : "RZ"}
     plt.subplot(3, 1, m)
+    plt.title(a[m] +" "+ b[q])
     plt.xlabel('Time')
     plt.ylabel('Amp')
     plt.tight_layout()
@@ -93,21 +96,18 @@ plt.figure(1)
 x = range(0, N+1)
 
 #Plots Uni-Polar NRZ
-titles(1)
+titles(1,1)
 plt.step(x, y)
-plt.title('Uni-Polar NRZ')
 plt.xticks(x)
 
 #Plots Polar NRZ
-titles(2)
+titles(2,1)
 plt.step(x, pol(), color='g')
-plt.title('Polar NRZ')
 plt.xticks(x)
 
 #Plots Bi-Polar NRZ
-titles(3)
+titles(3,1)
 plt.step(x, bi(), color='r')
-plt.title('Bi-Polar NRZ')
 plt.xticks(x)
 
 #Figure 2 with Change in x-axis
@@ -115,22 +115,19 @@ plt.figure(2)
 x1 = np.arange(0, (N+2)-1.5, 0.5)
 
 #Plots Uni-Polar RZ
-titles(1)
+titles(1,2)
 plt.step(x1, uni_rz(), color='purple')
 plt.xticks(x1)
-plt.title('Uni-Polar RZ')
 
 #Plots Polar RZ
-titles(2)
+titles(2,2)
 plt.step(x1, pol_rz(), color='c')
 plt.xticks(x1)
-plt.title('Polar RZ')
 
 #Plots Bi-Polar RZ
-titles(3)
+titles(3,2)
 plt.step(x1, bi_rz(), color='m')
 plt.xticks(x1)
-plt.title('Bi-Polar RZ')
 
 #Shows the Graph
 plt.show()
